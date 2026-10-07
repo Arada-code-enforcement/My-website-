@@ -1,0 +1,36 @@
+<!DOCdocument.getElementById('form-qunnamtii').addEventListener('submit', function(e){
+  e.preventDefault();
+
+  // Odeeffannoo galfame sassaabuu
+  const newMessage = {
+    maqaa: this.querySelector('[name="maqaa"]').value,
+    email: this.querySelector('[name="email"]').value,
+    mataduree: this.querySelector('[name="mataduree"]').value,
+    ergaa: this.querySelector('[name="ergaa"]').value,
+    yeroo: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString()
+  };
+
+  // LocalStorage irratti galchuuf
+  let messages = JSON.parse(localStorage.getItem('arada_messages')) || [];
+  messages.unshift(newMessage); // Ergaa haaraan jalqabatti akka dhufu
+  localStorage.setItem('arada_messages', JSON.stringify(messages));
+
+  document.getElementById('deebii').style.display = 'block';
+  this.reset();
+
+  setTimeout(() => {
+    document.getElementById('deebii').style.display = 'none';
+  }, 4000);
+});TYPE HTML>
+
+<html>
+
+<head>
+  <title>Untitled</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
